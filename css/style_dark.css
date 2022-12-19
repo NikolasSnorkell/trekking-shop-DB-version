@@ -1,0 +1,32 @@
+body{
+    background: rgb(59, 59, 59);
+    
+}
+
+#content{
+    background: rgb(59, 59, 59);
+}
+
+#products_types_cont .total_cont{
+    background: rgb(59, 59, 59) !important;
+}
+
+#products_types{
+    background: rgb(80, 80, 80);
+}
+#types_checks label{
+    color: white !important;
+}
+
+#types_checks input::before{
+    background: rgb(80, 80, 80) !important;
+}
+
+body #content #products_cont #products .products_category .category .category_title{
+    color: white ! important;
+    
+}
+
+#content #products_cont #products .products_category .category .category_line{
+    background:white;
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="css/style_dark.css"> -->
+    <title>trekking</title>
+</head>
+<body>
+        <header id="header" style='background-image: url("img/header_back_1.png")'>
+    <div class="total_cont">
+        <div id="header_cont">
+            <nav id="navbar">
+                <div id="nav_logo_cont">
+                    <img src="img/logo.png" alt="" id="nav_logo">
+                </div>
+                <ul id="nav_list">
+                   
+                    <li id="products_nav">Products</li>
+                    <li id="cart_li"><img src="img/shopping-cart.png" alt="" id="cart"><span class="cart_count">0</span></li>
+                    <li class="user_ava">
+                        <img src="img/user.png" alt="user">
+                    </li>
+                </ul>
+                <div class="user_autho">
+                    <input type="text" name="email" id="user_email" placeholder="Type E-mail">
+                    <input type="text" name="login" id="user_login" placeholder="Type Login">
+                    <input type="password" name="password" id="user_pass" placeholder="Type Password">                    
+                    <button id="user_submit">Login</button>
+                    <p id="user_register">Register</p>
+                </div>
+
+                <div class="user_info">
+                    <div>
+                        <p id="user_name">Nikolas Snorkell</p>
+                        <div id="fio_change" style="border-bottom:1px solid white ;padding-bottom: 10px;">
+                            <input type="text" id="name_change" name="name_change" placeholder="Name"><br>
+                            <input type="text" id="secName_change" name="secName_change" placeholder="Second name" style="margin:10px 0 ;"><br>
+                            <button id="name_change_save" style="padding:5px 10px ;">Save</button>
+                        </div>
+                        <p id="user_mail"></p>
+                        <p id="user_theme"></p>
+                    </div>
+                    <p id="devider"></p>
+
+                    <p id="user_orders">Orders</p>
+                    <p id="user_log-out">Logout</p>
+                </div>
+            </nav>
+
+            <div id="title_cont">
+                <h1 id="title_header">Our clothing , your comfort</h1>
+                <p id="title_header_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+            </div>
+
+            <div id="header_arrow_cont">
+                <img src="img/arrow-down.png" alt="" id="header_arrow">
+            </div>
+        </div>
+    </div>
+</header>
+        <div id="content">
+<div id="content">
+
+    <div id="content_cont">
+
+        <div id="products_types_cont">
+            <div class="total_cont">
+                <div id="products_types">
+                    <div id="types_checks">
+                        <div><input type="checkbox" name="product_type" class="product_type"
+                                id="product_type_men"><label for="product_type_men">men</label></div>
+                        <div><input type="checkbox" name="product_type" class="product_type"
+                                id="product_type_women"><label for="product_type_women">women</label></div>
+                        <div><input type="checkbox" name="product_type" class="product_type"
+                                id="product_type_children"><label for="product_type_children">children</label></div>
+                    </div>
+
+                    <div id="all_products_btn_cont">
+                        <a href="#" id="all_products_btn">see all products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="products_cont">
+            <div class="total_cont">
+                <div id="products">
+                    <iframe name="dummyframe" id="dummyframe" hidden></iframe>
+
+                    <div class="products_category" id="products_men">
+                        <div class="category">
+                            <div class="category_line"></div>
+                            <div class="category_title">men</div>
+                        </div>
+                        <div class="products">
+
+                            <div class="products_amount">
+                                <div class="cards_control">
+                                    <!-- <p class="cards_amount">1/5</p> -->
+                                    <div class="cards_arrows">
+                                        <img src="img/chevron-left.png" alt="" class="left_men">
+                                        <img src="img/chevron-right.png" alt="" class="right_men">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="products_cards products_cards_men">
+
+                                <!-- <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span value="40">40</span>
+                                                <span value="40">40</span>
+                                                <span value="40">40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+                                            <span class="colors" value="blue" ></span>
+                                            <span class="colors" value="yellow"></span>
+                                            <span class="colors" value="darkgrey"></span>
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card1.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">t-shirt</p>
+                                        <p class="card_products_price">5,00 € </p>
+                                    </div>
+
+
+                                    <form action="php/index.php" method="GET" class="card_forms" target="dummyframe">
+                                        <input type="text" name="color" hidden>
+                                        <input type="text" name="size" hidden>
+                                        <input type="text" name="price" hidden>
+                                        <input type="text" name="name" hidden>
+                                        <input type="text" name="id" value="1" hidden>
+                                        <input type="text" name="gender" hidden>
+                                        <button type="submit" class="add_to_cart">Add to cart</button>
+                                    </form>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card2.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">pants forclaz</p>
+                                        <p class="card_products_price">30,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>10 litri</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card3.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">backpack</p>
+                                        <p class="card_products_price">60,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card2.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">pants forclaz</p>
+                                        <p class="card_products_price">30,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card1.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">t-shirt</p>
+                                        <p class="card_products_price">5,00 € </p>
+                                    </div>
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="products_category" id="products_women">
+                        <div class="category">
+                            <div class="category_title">women</div>
+                            <div class="category_line"></div>
+
+                        </div>
+                        <div class="products">
+
+                            <div class="products_amount">
+                                <div class="cards_control cards_control_women">
+                                    <!-- <p class="cards_amount ">1/5</p> -->
+                                    <div class="cards_arrows">
+                                        <img src="img/chevron-left.png" alt="" class="left_women">
+                                        <img src="img/chevron-right.png" alt="" class="right_women">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="products_cards products_cards_women">
+                                <!-- <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card6.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">giacket</p>
+                                        <p class="card_products_price">60,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card5.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">trekking shoes</p>
+                                        <p class="card_products_price">80,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card4.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">t-shirt</p>
+                                        <p class="card_products_price">20,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card4.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">t-shirt</p>
+                                        <p class="card_products_price">20,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card5.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">trekking shoes</p>
+                                        <p class="card_products_price">80,00 € </p>
+                                    </div>
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="products_category" id="products_children">
+                        <div class="category">
+                            <div class="category_line"></div>
+                            <div class="category_title">children</div>
+                        </div>
+                        <div class="products">
+
+                            <div class="products_amount">
+                                <div class="cards_control">
+                                    <!-- <p class="cards_amount">1/5</p> -->
+                                    <div class="cards_arrows">
+                                        <img src="img/chevron-left.png" alt="" class="left_children">
+                                        <img src="img/chevron-right.png" alt="" class="right_children">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="products_cards products_cards_children">
+                                <!-- <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card1.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">t-shirt</p>
+                                        <p class="card_products_price">5,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card2.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">pants forclaz</p>
+                                        <p class="card_products_price">30,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+                                            <span class="colors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card1.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">t-shirt</p>
+                                        <p class="card_products_price">5,00 € </p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card_top">
+                                        <div class="card_size_cont">
+                                            <div class="card_sizes_block">
+                                                <span>40</span>
+                                                <span>40</span>
+                                                <span>40</span>
+                                            </div>
+                                            <p>size</p>
+                                            <img src="img/card-angle-down.png" alt="" class="size_btn">
+                                        </div>
+                                        <div class="card_colors_cont">
+
+                                        </div>
+                                    </div>
+                                    <div class="card_mid">
+                                        <img src="img/card5.png" alt="">
+                                    </div>
+                                    <div class="card_bottom">
+
+                                        <p class="card_products_name">trekking shoes</p>
+                                        <p class="card_products_price">80,00 € </p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="exist_user">
+            <img src="img/cross.png" alt="red cross">
+            <p>Sorry, this login in use.</p>
+        </div>
+        <div id="wrong_user">
+            <img src="img/cross.png" alt="red cross">
+            <p>Sorry, this user doesn't exist. Please register.</p>
+        </div>
+        <div id="success_user">
+            <img src="img/success.png" alt="check">
+            <p>Successfully registered!</p>
+        </div>
+
+       
+
+    </div>
+</div>
+        <div id="about">
+
+    <div id="about_block">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation</p>
+    </div>
+
+</div>
+        <div id="feedback">
+    <div class="total_cont">
+        <p class="feedback_caption">Contact Me</p>  
+    <form action="" method="post" class="subscribe" id="feedback_form">
+                      
+        <input type="hidden" name="project_name" value="trekking">
+        <input type="hidden" name="admin_email" value="pushoknik228@gmail.com">
+        <input type="hidden" name="form_subject" value="Feedback">
+
+
+        <input type="email" name="name" placeholder="Your Email" class="feedback_email">
+        <textarea name="text" cols="40" rows="5" placeholder="Message body"
+            class="feedback_text"></textarea>
+        <button class="feedback_btn" type="submit">Send</button>
+    </form>
+</div>
+</div>
+        <footer id="footer">
+    <div class="total_cont">
+        <div id="footer_cont">
+            <div id="footer_trekking">
+                <p id="footer_trekking_title">trekking</p>
+                <p id="footer_trekking_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div id="footer_menu_block">
+                <div id="footer_menu">
+                    <ul id="footer_menu_list">
+                        <li>credits</li>
+                        <li>privacy</li>
+                        <li id="about_footer">about</li>
+                        <li id="help_footer">help</li>
+                    </ul>
+                </div>
+                <div id="footer_design">Design by gianluca cosetta</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+     
+     <script src="js/jquery-3.6.0.min.js"></script>
+     <script type="text/javascript" src="js/slick.min.js"></script>
+    <script src="js/script.min.js"></script>
+</body>
+</html>

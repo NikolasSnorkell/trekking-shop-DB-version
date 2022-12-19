@@ -1,0 +1,216 @@
+[
+    {
+        "id": "0",
+        "name": "pants forclaz",
+        "colors": [
+            "yellow",
+            "darkblue"
+        ],
+        "sizes": [
+            "40",
+            "42",
+            "43"
+        ],
+        "gender": "man",
+        "price": 30
+    },
+    {
+        "id": "1",
+        "name": "t-shirt",
+        "colors": [
+            "yellow",
+            "darkblue",
+            "grey"
+        ],
+        "sizes": [
+            "40",
+            "48",
+            "50"
+        ],
+        "gender": "man",
+        "price": 10
+    },
+    {
+        "id": "2",
+        "name": "backpack",
+        "colors": [
+            "grey",
+            "darkblue"
+        ],
+        "sizes": [
+            "10"
+        ],
+        "gender": "man",
+        "price": 60
+    },
+    {
+        "id": "3",
+        "name": "backpack",
+        "colors": [
+            "grey",
+            "darkblue"
+        ],
+        "sizes": [
+            "10"
+        ],
+        "gender": "man",
+        "price": 60
+    },
+    {
+        "id": "4",
+        "name": "backpack",
+        "colors": [
+            "grey",
+            "darkblue"
+        ],
+        "sizes": [
+            "10"
+        ],
+        "gender": "man",
+        "price": 60
+    },
+    {
+        "id": "5",
+        "name": "giacket",
+        "colors": [
+            "pink",
+            "darkblue"
+        ],
+        "sizes": [
+            "38",
+            "39",
+            "40"
+        ],
+        "gender": "woman",
+        "price": 60
+    },
+    {
+        "id": "6",
+        "name": "t-shirt",
+        "colors": [
+            "pink",
+            "white"
+        ],
+        "sizes": [
+            "38",
+            "39",
+            "40"
+        ],
+        "gender": "woman",
+        "price": 20
+    },
+    {
+        "id": "7",
+        "name": "trekking shoes",
+        "colors": [
+            "pink",
+            "white",
+            "grey"
+        ],
+        "sizes": [
+            "35",
+            "37",
+            "40"
+        ],
+        "gender": "woman",
+        "price": 80
+    },
+    {
+        "id": "8",
+        "name": "trekking shoes",
+        "colors": [
+            "pink",
+            "white",
+            "grey"
+        ],
+        "sizes": [
+            "35",
+            "37",
+            "40"
+        ],
+        "gender": "woman",
+        "price": 80
+    },
+    {
+        "id": "9",
+        "name": "trekking shoes",
+        "colors": [
+            "pink",
+            "white",
+            "grey"
+        ],
+        "sizes": [
+            "35",
+            "37",
+            "40"
+        ],
+        "gender": "woman",
+        "price": 80
+    },
+    {
+        "id": "10",
+        "name": "trekking shoes",
+        "colors": [
+            "pink",
+            "white",
+            "darkblue"
+        ],
+        "sizes": [
+            "32",
+            "33",
+            "34",
+            "35"
+        ],
+        "gender": "children",
+        "price": 70
+    },
+    {
+        "id": "11",
+        "name": "t-shirt",
+        "colors": [
+            "pink",
+            "white",
+            "darkblue"
+        ],
+        "sizes": [
+            "32",
+            "33",
+            "34",
+            "35"
+        ],
+        "gender": "children",
+        "price": 15
+    },
+    {
+        "id": "12",
+        "name": "t-shirt",
+        "colors": [
+            "pink",
+            "white",
+            "darkblue"
+        ],
+        "sizes": [
+            "32",
+            "33",
+            "34",
+            "35"
+        ],
+        "gender": "children",
+        "price": 15
+    },
+    {
+        "id": "13",
+        "name": "backpack",
+        "colors": [
+            "pink",
+            "grey",
+            "darkblue"
+        ],
+        "sizes": [
+            "8"
+        ],
+        "gender": "children",
+        "price": 50
+    }
+]
+

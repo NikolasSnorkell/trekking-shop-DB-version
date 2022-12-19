@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/slick.css" />
+    <link rel="stylesheet" href="../css/style.min.css">
+    <title>cart</title>
+</head>
+
+<body>
+
+
+
+
+    <content id="content-manager">
+
+        <button id="backHome" class="buttons">Back Home</button>
+        <a href="#ordersCont" id="toOrders" class="buttons">To Orders</a>
+
+        <div id="cardsEdit">
+
+            <div id="items_controls">
+                <button id="add_item">Add</button>
+                <button id="edit_item">Edit</button>
+                <button id="delete_item">Delete</button>
+
+                <div id="add_block">
+
+                    <div id="add_fields">
+                        <input type="file" name="photo" accept="image/png" id="edit_choose_photo">
+                        <input type="text" name="name" placeholder="name">
+                        <input type="text" name="sizes" placeholder="sizes">
+                        <input type="number" name="price" placeholder="price">
+                        <div id="add_colors_block"></div>
+                        <select name="gender" id="add_gender">
+                            <option value="woman">Woman</option>
+                            <option value="man">Man</option>
+                            <option value="children">Children</option>
+                        </select>
+                    </div>
+                    <button id="add_confirm">Add This</button>
+                </div>
+
+                <div id="edit_block">
+                    <select name="edit" id="edit_id">
+
+                    </select>
+                    <br>
+                    <div id="edit_fields">
+                        <input type="file" name="photo" accept="image/png" id="edit_choose_photo">
+                        <input type="text" name="name" placeholder="name">
+                        <input type="text" name="sizes" placeholder="sizes">
+                        <input type="number" name="price" placeholder="price">
+                        <div id="edit_colors_block"></div>
+                        <select name="gender" id="edit_gender">
+                            <option value="woman">Woman</option>
+                            <option value="man">Man</option>
+                            <option value="children">Children</option>
+                        </select>
+                    </div>
+                    <button id="edit_confirm">Edit This</button>
+                </div>
+
+                <div id="delete_block">
+                    <select name="delete" id="delete_id">
+
+                    </select>
+                    <button id="delete_confirm">Delete This</button>
+                </div>
+            </div>
+
+            <p>ITEMS</p>
+            <div id="items_show">
+
+            </div>
+        </div>
+
+        <div id="ordersCont">
+
+            <table id="ordersTable">
+                <p>ORDERS</p>
+                <tr class="header_table">
+                    <td>Image</td>
+                    <td>[Id] Name</td>
+                    <td>Size</td>
+                    <td>Color</td>
+                    <td>Amount</td>
+                    <td>Price</td>
+                    <td>Date</td>
+                    <td>(Id) User</td>
+                </tr>
+            </table>
+
+
+        </div>
+
+        <a href="#backHome" id="toTop" class="buttons">To Top</a>
+
+    </content>
+
+
+
+
+
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/slick.min.js"></script>
+    <!-- <script src="../js/script.js"></script> -->
+    <script>
+
+
+        $('#backHome').click(function () {
+            document.location.href = '../index.html';
+        })
+
+        $('#add_block').slideUp(0);
+        $('#edit_block').slideUp(0);
+        $('#delete_block').slideUp(0);
+
+
+
+        function update_orders() {
+
+            $.post('../php/order.php', { 'manager_items': 'all' }, function (result) {
+                // result = result.split(', ');
+
+                if (result == "Nothing") {
+                    $('#ordersCont').html('<p>There is nothing to display.</p>')
+                } else {
+
+                    result = result.replaceAll(',"', '');
+                    result = result.replaceAll('"', '');
+
+
+                    result = result.replaceAll("'", '"');
+                    result = jQuery.parseJSON(result);
+
+                    // console.log(result);
+                    $('#ordersTable').html('<tr class="header_table"><td>Image</td><td>[Id] Name</td><td>Size</td><td>Color</td><td>Amount</td><td>Price</td><td>Date</td><td>(Id) User</td></tr>');
+                    for (let i = 0; i < result.length; i++) {
+                        $('#ordersTable').append('<tr class="manager_order"><td>    <img src="../img/' + result[i].name + '_' + result[i].gender + '.png" alt=""></td><td class="cart_item_price">[' + result[i].itemId + '] </td><span class="cart_item_name">' + result[i].name + '</span><td class="cart_item_size">' + result[i].size + '</td><td class="cart_item_color" >' + result[i].color + '</td><td class="cart_item_amount" >' + result[i].amount + '</td><td class="cart_item_price">' + result[i].price + ' € </td><td class="cart_item_date">' + result[i].date + '</td><td class="cart_item_user">(' + result[i].user + ') ' + result[i].userName + ' ' + result[i].userSecName + '</td></tr>');
+
+
+
+                    }
+
+                }
+
+            })
+
+
+
+        }
+
+        update_orders();
+
+        let array = [], add_id;
+
+
+        function update_items() {
+
+            $('#items_show').html('');
+
+            $('#delete_id').html('');
+
+
+            $.get('../php/index.php', { 'aim': 'getItems' }, function (result) {
+
+                array = jQuery.parseJSON(result);
+                let sizes_string = '';
+                let colors_string = '';
+
+
+                for (let i = 0; i < array.length; i++) {
+
+
+                    let sizes_items = array[i].sizes;
+                    let colors_items = array[i].colors;
+                    sizes_string = '';
+                    colors_string = '';
+                    add_id = +array[array.length - 1].id + 1;
+
+
+                    for (let k = 0; k < sizes_items.length; k++) {
+                        sizes_string += sizes_items[k] + ', ';
+                    }
+
+                    for (let k = 0; k < colors_items.length; k++) {
+                        colors_string += colors_items[k] + ', ';
+                    }
+
+                    $('#items_show').append('<div class="card"><img src="../img/' + array[i].name + '_' + array[i].gender + '.png" alt=""><span>[' + array[i].id + '] ' + array[i].name + ' </span><span>' + colors_string + ' </span><span>' + sizes_string + ' </span><span>' + array[i].price + '€ </span><span>' + array[i].gender + '</span></div > ');
+                    $('#delete_id').append('<option value="' + array[i].id + '">[' + array[i].id + '] ' + array[i].name + '</option>');
+                    $('#edit_id').append('<option value="' + array[i].id + '">[' + array[i].id + '] ' + array[i].name + '</option>');
+
+                }
+
+
+
+
+                // console.log(result);
+
+            })
+        }
+
+
+        update_items();
+
+
+
+
+
+
+        let color_arr = [];
+        function get_colors() {
+            $('#edit_colors_block').html('');
+
+            $.post('../php/colors.php', { 'getColors': 'colors' }, function (result) {
+
+                result = result.slice(0, -1);
+                color_arr = result.split(';');
+                // console.log(color_arr);
+
+                for (let i = 0; i < color_arr.length; i++) {
+                    $('#edit_colors_block').append('<label><input type="checkbox" name="edit_colors" value="' + color_arr[i] + '">' + color_arr[i] + '</label>')
+                    $('#add_colors_block').append('<label><input type="checkbox" name="edit_colors" value="' + color_arr[i] + '">' + color_arr[i] + '</label>')
+                }
+
+            })
+
+
+        }
+
+        get_colors();
+
+        let files;
+        let color_checks, newImgName;
+        let add_obj = {}, add_colors = [], add_sizes = [];
+
+        $('#add_item').click(function () {
+
+
+            $('#add_block').slideToggle(300);
+
+        });
+
+
+        $('#add_choose_photo').on('change', function () {
+
+            files = this.files;
+            // console.log(files);
+        });
+
+        $('#add_confirm').click(function () {
+            add_colors.length = 0;
+            add_sizes.length = 0;
+            add_obj.length = 0;
+
+            color_checks = $('#add_colors_block input[type="checkbox"]');
+
+            for (let m = 0; m < color_checks.length; m++) {
+                if ($(color_checks[m]).prop('checked') == true) {
+                    add_colors.push($(color_checks[m]).parent('label').text());
+                }
+            }
+
+            let tmp_sizes = $('#add_fields input[name="sizes"').val();
+
+            if (tmp_sizes[tmp_sizes.length - 1] == " ") {
+                tmp_sizes = tmp_sizes.slice(0, -1);
+
+            }
+
+            add_sizes = tmp_sizes.split(' ');
+            add_obj.sizes = add_sizes;
+            add_obj.colors = add_colors;
+
+            add_obj.id = add_id;
+            add_obj.name = $('#add_fields input[name="name"').val();
+            add_obj.price = $('#add_fields input[name="price"').val();
+            add_obj.gender = $('#add_gender option').filter(':selected').val();
+
+            
+
+            if (add_obj.name && add_obj.price && add_obj.gender && add_obj.sizes && add_obj.colors && files != 'undefined') {
+
+                newImgName = add_obj.name + '_' + add_obj.gender + '.png';
+
+                $.post('../php/index.php', { 'add_this': add_obj }, function (result) {
+
+                    console.log(result);
+                    update_items();
+                    // delete_update();
+                    $('#add_fields input[name="name"').val('');
+                    $('#add_fields input[name="price"').val('');
+                    $('#add_fields input[name="sizes"').val('');
+                });
+
+                if (files != 'undefined') {
+
+                    let data = new FormData();
+
+                    // заполняем объект данных файлами в подходящем для отправки формате
+                    $.each(files, function (key, value) {
+                        data.append(key, value);
+                    });
+
+                    // добавим переменную для идентификации запроса
+                    data.append('add_image', 1);
+                    data.append('newImageName', newImgName);
+
+                    $.ajax({
+                        url: '../php/index.php',
+                        type: 'POST', // важно!
+                        data: data,
+                        cache: false,
+                        dataType: 'json',
+                        // отключаем обработку передаваемых данных, пусть передаются как есть
+                        processData: false,
+                        // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+                        contentType: false,
+                        // функция успешного ответа сервера
+                        success: function (respond, status, jqXHR) {
+
+                            // ОК - файлы загружены
+                            if (typeof respond.error === 'undefined') {
+                                // выведем пути загруженных файлов в блок '.ajax-reply'
+                                var files_path = respond.files;
+                                var html = '';
+                                $.each(files_path, function (key, val) {
+                                    html += val + '<br>';
+                                })
+
+                                console.log(html);
+                            }
+                            // ошибка
+                            else {
+                                console.log('ОШИБКА: ' + respond.data);
+                            }
+                        },
+                        // функция ошибки ответа сервера
+                        error: function (jqXHR, status, errorThrown) {
+                            console.log('ОШИБКА AJAX запроса: ' + status, jqXHR);
+                        }
+
+                    });
+                }
+
+
+            } else {
+                alert("Please, fill all fields.")
+            }
+
+        });
+
+
+        $('#edit_item').click(function () {
+
+
+            $('#edit_block').slideToggle(300);
+
+        });
+
+     
+        $('#edit_choose_photo').on('change', function () {
+
+            files = this.files;
+            // console.log(files);
+        });
+
+
+
+        let size_edit_string, imgName;
+        let edit_id;
+
+        $('#edit_id').on("change", function () {
+
+
+
+            color_checks = $('#edit_colors_block input[type="checkbox"]');
+
+            $(color_checks).prop('checked', false);
+            size_edit_string = '';
+
+            let sel_id = $('#edit_id option').filter(':selected').val();
+
+
+            for (let i = 0; i < array.length; i++) {
+
+                if (array[i].id == sel_id) {
+                    $('#edit_fields input[name="name"').attr('value', array[i].name);
+                    $('#edit_fields input[name="price"').attr('value', array[i].price);
+                    $('#edit_gender option[value="' + array[i].gender + '"').prop("selected", true);
+                    edit_id = array[i].id;
+
+                    for (let s = 0; s < (array[i].sizes).length; s++) {
+                        size_edit_string += array[i].sizes[s] + ' ';
+                    }
+
+                    $('#edit_fields input[name="sizes"').attr('value', size_edit_string);
+
+                    imgName = array[i].name + '_' + array[i].gender + '.png';
+
+                    for (let m = 0; m < color_checks.length; m++) {
+
+                        for (let k = 0; k < (array[i].colors).length; k++) {
+
+                            if ($(color_checks[m]).val() == array[i].colors[k]) {
+                                $(color_checks[m]).prop('checked', true);
+
+                            }
+
+                        }
+                    }
+                }
+            }
+        });
+
+        let edit_obj = {}, edit_colors = [], edit_sizes = [];
+
+        $('#edit_confirm').click(function () {
+            edit_colors.length = 0;
+            edit_sizes.length = 0;
+            edit_obj.length = 0;
+
+
+            edit_obj.id = edit_id;
+            edit_obj.name = $('#edit_fields input[name="name"').val();
+            edit_obj.price = $('#edit_fields input[name="price"').val();
+            edit_obj.gender = $('#edit_gender option').filter(':selected').val();
+
+            for (let m = 0; m < color_checks.length; m++) {
+                if ($(color_checks[m]).prop('checked') == true) {
+                    edit_colors.push($(color_checks[m]).parent('label').text());
+                }
+            }
+
+            edit_obj.colors = edit_colors;
+
+            let tmp_sizes = $('#edit_fields input[name="sizes"').val();
+
+            if (tmp_sizes[tmp_sizes.length - 1] == " ") {
+                tmp_sizes = tmp_sizes.slice(0, -1);
+
+            }
+
+            edit_sizes = tmp_sizes.split(' ');
+            edit_obj.sizes = edit_sizes;
+
+            console.log(files);
+
+            newImgName = edit_obj.name + '_' + edit_obj.gender + '.png';
+
+            edit_obj.oldImg = imgName;
+            edit_obj.newImg = newImgName;
+
+
+
+            $.post('../php/index.php', { 'edit_this': edit_obj }, function (result) {
+
+                console.log(result);
+                update_items();
+                // delete_update();
+
+            });
+
+            if (files != 'undefined') {
+
+                let data = new FormData();
+
+                // заполняем объект данных файлами в подходящем для отправки формате
+                $.each(files, function (key, value) {
+                    data.append(key, value);
+                });
+
+                // добавим переменную для идентификации запроса
+                data.append('edit_image', 1);
+                data.append('newImageName', newImgName);
+
+                $.ajax({
+                    url: '../php/index.php',
+                    type: 'POST', // важно!
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    // отключаем обработку передаваемых данных, пусть передаются как есть
+                    processData: false,
+                    // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+                    contentType: false,
+                    // функция успешного ответа сервера
+                    success: function (respond, status, jqXHR) {
+
+                        // ОК - файлы загружены
+                        if (typeof respond.error === 'undefined') {
+                            // выведем пути загруженных файлов в блок '.ajax-reply'
+                            var files_path = respond.files;
+                            var html = '';
+                            $.each(files_path, function (key, val) {
+                                html += val + '<br>';
+                            })
+
+                            console.log(html);
+                        }
+                        // ошибка
+                        else {
+                            console.log('ОШИБКА: ' + respond.data);
+                        }
+                    },
+                    // функция ошибки ответа сервера
+                    error: function (jqXHR, status, errorThrown) {
+                        console.log('ОШИБКА AJAX запроса: ' + status, jqXHR);
+                    }
+
+                });
+            }
+
+        });
+
+
+        $('#delete_item').click(function () {
+
+
+            //   delete_update();
+
+            $('#delete_block').slideToggle(300);
+
+        });
+
+
+
+        $('#delete_confirm').click(function () {
+
+            let sel_id = $('#delete_id option').filter(':selected').val();
+
+            $.post('../php/index.php', { 'delete_this': sel_id }, function (result) {
+
+                console.log(result);
+                update_items();
+                // delete_update();
+
+            })
+
+        });
+
+    </script>
+</body>
+
+</html>
